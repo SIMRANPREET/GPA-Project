@@ -1,12 +1,6 @@
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.BoxLayout;
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,6 +22,7 @@ public class GPAFRAME extends JFrame{
 	 private JButton grade6;
 	 private JButton grade7;
 	 private JButton grade8;
+	 private JButton cb;
 	 private JLabel label1;
 	 private JLabel label2;
 	 private JLabel label3;
@@ -46,22 +41,14 @@ public class GPAFRAME extends JFrame{
 	 private JTextField input6;
 	 private JTextField input7;
 	 private JTextField input8;
-	 private double b1;
-	 private double b2;
-	 private double b3;
-	 private double b4;
-	 private double b5;
-	 private double b6;
-	 private double b7;
-	 private double b8;
 	 private double gpa;
 	 private double pgpa;
 	 private String gpaString;
 	 private String pgpaString;
 	 
 	 public GPAFRAME(){
-	      createPanel();
-	      displayGPA();
+	      createPanel(); 
+	      
 	      setSize(FRAME_WIDTH, FRAME_HEIGHT);
 	 }
 	 private void createPanel(){
@@ -91,6 +78,7 @@ public class GPAFRAME extends JFrame{
 		 p.add(label6);
 		 p.add(label7);
 		 p.add(label8);
+		 p.add(cb);
 		 p.add(gpalabel);
 		 p.add(pgpalabel);
 		 p.add(gpaText);
@@ -102,405 +90,462 @@ public class GPAFRAME extends JFrame{
 	   {
 	      public void actionPerformed(ActionEvent event)
 	      {
-	    	  String gl1 = input1.getText();
-	    	  String gl2 = input2.getText();
-	    	  String gl3 = input3.getText();
-	    	  String gl4 = input4.getText();
-	    	  String gl5 = input5.getText();
-	    	  String gl6 = input6.getText();
-	    	  String gl7 = input7.getText();
-	    	  String gl8 = input8.getText();
-	         if(gl1.equals("A")  || gl1.equals("A-") || gl1.equals("B+") || gl1.equals("B") || gl1.equals("B-") ||
-	        	gl1.equals("C+") || gl1.equals("C")  || gl1.equals("C-") || gl1.equals("D+")|| gl1.equals("D")  ||
-	        	gl1.equals("D-") || gl1.equals("F")){
-	        	 grade1.setText(gl1);
+	         if(input1.getText() != null){
+	        	 grade1.setText(input1.getText());
 	         }
-	         if(gl2.equals("A")  || gl2.equals("A-") || gl2.equals("B+") || gl2.equals("B") || gl2.equals("B-") ||
-	 	        	gl2.equals("C+") || gl2.equals("C")  || gl2.equals("C-") || gl2.equals("D+")|| gl2.equals("D")  ||
-	 	        	gl2.equals("D-") || gl2.equals("F")){
-	 	        	 grade2.setText(gl2);
+	         if(input2.getText() != null){
+	 	        	 grade2.setText(input2.getText());
 	 	         }
-	         if(gl3.equals("A")  || gl3.equals("A-") || gl3.equals("B+") || gl3.equals("B") || gl3.equals("B-") ||
-	 	        	gl3.equals("C+") || gl3.equals("C")  || gl3.equals("C-") || gl3.equals("D+")|| gl3.equals("D")  ||
-	 	        	gl3.equals("D-") || gl3.equals("F")){
-	 	        	 grade3.setText(gl3);
+	         if(input3.getText() != null){
+	 	        	 grade3.setText(input3.getText());
 	 	         }
-	         if(gl4.equals("A")  || gl4.equals("A-") || gl4.equals("B+") || gl4.equals("B") || gl4.equals("B-") ||
-	 	        	gl4.equals("C+") || gl4.equals("C")  || gl4.equals("C-") || gl4.equals("D+")|| gl4.equals("D")  ||
-	 	        	gl4.equals("D-") || gl4.equals("F")){
-	 	        	 grade4.setText(gl4);
+	         if(input4.getText() != null){
+	 	        	 grade4.setText(input4.getText());
 	 	         }
-	         if(gl5.equals("A")  || gl5.equals("A-") || gl5.equals("B+") || gl5.equals("B") || gl5.equals("B-") ||
-	 	        	gl5.equals("C+") || gl5.equals("C")  || gl5.equals("C-") || gl5.equals("D+")|| gl5.equals("D")  ||
-	 	        	gl5.equals("D-") || gl5.equals("F")){
-	 	        	 grade5.setText(gl5);
+	         if(input5.getText() != null){
+	 	        	 grade5.setText(input5.getText());
 	 	         }
-	         if(gl6.equals("A")  || gl6.equals("A-") || gl6.equals("B+") || gl6.equals("B") || gl6.equals("B-") ||
-	 	        	gl6.equals("C+") || gl6.equals("C")  || gl6.equals("C-") || gl6.equals("D+")|| gl6.equals("D")  ||
-	 	        	gl6.equals("D-") || gl6.equals("F")){
-	 	        	 grade6.setText(gl6);
+	         if(input6.getText() != null){
+	 	        	 grade6.setText(input6.getText());
 	 	         }
-	         if(gl7.equals("A")  || gl7.equals("A-") || gl7.equals("B+") || gl7.equals("B") || gl7.equals("B-") ||
-	 	        	gl7.equals("C+") || gl7.equals("C")  || gl7.equals("C-") || gl7.equals("D+")|| gl7.equals("D")  ||
-	 	        	gl7.equals("D-") || gl7.equals("F")){
-	 	        	 grade7.setText(gl7);
+	         if(input7.getText() != null){
+	 	        	 grade7.setText(input7.getText());
 	 	         }
-	         if(gl8.equals("A")  || gl8.equals("A-") || gl8.equals("B+") || gl8.equals("B") || gl8.equals("B-") ||
-	 	        	gl8.equals("C+") || gl8.equals("C")  || gl8.equals("C-") || gl8.equals("D+")|| gl8.equals("D")  ||
-	 	        	gl8.equals("D-") || gl8.equals("F")){
-	 	        	 grade8.setText(gl8);
+	         if(input8.getText() != null){
+	 	        	 grade8.setText(input8.getText());
 	 	         }
-        	 if(gl1.equals("CLEAR")){
+        	 if(input1.equals("CLEAR")){
         		 grade1.setText(null);
         	 }
-        	 if(gl2.equals("CLEAR")){
+        	 if(input2.equals("CLEAR")){
         		 grade2.setText(null);
         	 }
-        	 if(gl3.equals("CLEAR")){
+        	 if(input3.equals("CLEAR")){
         		 grade3.setText(null);
         	 }
-        	 if(gl4.equals("CLEAR")){
+        	 if(input4.equals("CLEAR")){
         		 grade4.setText(null);
         	 }
-        	 if(gl5.equals("CLEAR")){
+        	 if(input5.equals("CLEAR")){
         		 grade5.setText(null);
         	 }
-        	 if(gl6.equals("CLEAR")){
+        	 if(input6.equals("CLEAR")){
         		 grade6.setText(null);
         	 }
-        	 if(gl7.equals("CLEAR")){
+        	 if(input7.equals("CLEAR")){
         		 grade7.setText(null);
         	 }
-        	 if(gl8.equals("CLEAR")){
+        	 if(input8.equals("CLEAR")){
         		 grade8.setText(null);
         	 }
 	      }
 	   }
-	 private void setLetterValue1(){
-		 if(input1.getText().equals("A")){
-			 b1 = 4.00;
+	 
+	 class AddActionListener2 implements ActionListener{
+		
+		 public void actionPerformed(ActionEvent event){
+			double s1=0;
+			double s2=0;
+			double s3=0;
+			double s4=0;
+			double s5=0;
+			double s6=0;
+			double s7=0;
+			double s8=0;
+			if(input1.getText().equals("A")){
+				s1 = 4.00;
+				grade1.setBackground(Color.GREEN);
+			}
+			if(input1.getText().equals("A-")){
+				s1 = 3.67;
+				grade1.setBackground(Color.GREEN);
+			}
+			if(input1.getText().equals("B+")){
+				s1 = 3.33;
+				grade1.setBackground(new Color(200, 250, 0));
+			}
+			if(input1.getText().equals("B")){
+				s1 = 3.00;
+				grade1.setBackground(new Color(200, 250, 0));
+			}
+			if(input1.getText().equals("B-")){
+				s1 = 2.67;
+				grade1.setBackground(new Color(200, 250, 0));
+			}
+			if(input1.getText().equals("C+")){
+				s1 = 2.33;
+				grade1.setBackground(new Color(250, 250, 0));
+			}
+			if(input1.getText().equals("C")){
+				s1 = 2.00;
+				grade1.setBackground(new Color(250, 250, 0));
+			}
+			if(input1.getText().equals("C-")){
+				s1 = 1.67;
+				grade1.setBackground(new Color(250, 250, 0));
+			}
+			if(input1.getText().equals("D+")){
+				s1 = 1.33;
+				grade1.setBackground(new Color(250, 200, 0));
+			}
+			if(input1.getText().equals("D")){
+				s1 = 1.00;
+				grade1.setBackground(new Color(250, 200, 0));
+			}
+			if(input1.getText().equals("D-")){
+				s1 = 0.67;
+				grade1.setBackground(new Color(250, 200, 0));
+			}
+			if(input1.getText().equals("F")){
+				s1 = 0.00;
+				grade1.setBackground(Color.RED);
+			}
+			if(input2.getText().equals("A")){
+				s2 = 4.00;
+				grade2.setBackground(Color.GREEN);
+			}
+			if(input2.getText().equals("A-")){
+				s2 = 3.67;
+				grade2.setBackground(Color.GREEN);
+			}
+			if(input2.getText().equals("B+")){
+				s2 = 3.33;
+				grade2.setBackground(new Color(200, 250, 0));
+			}
+			if(input2.getText().equals("B")){
+				s2 = 3.00;
+				grade2.setBackground(new Color(200, 250, 0));
+			}
+			if(input2.getText().equals("B-")){
+				s2 = 2.67;
+				grade2.setBackground(new Color(200, 250, 0));
+			}
+			if(input2.getText().equals("C+")){
+				s2 = 2.33;
+				grade2.setBackground(new Color(250, 250, 0));
+			}
+			if(input2.getText().equals("C")){
+				s2 = 2.00;
+				grade2.setBackground(new Color(250, 250, 0));
+			}
+			if(input2.getText().equals("C-")){
+				s2 = 1.67;
+				grade2.setBackground(new Color(250, 250, 0));
+			}
+			if(input2.getText().equals("D+")){
+				s2 = 1.33;
+				grade2.setBackground(new Color(250, 200, 0));
+			}
+			if(input2.getText().equals("D")){
+				s2 = 1.00;
+				grade2.setBackground(new Color(250, 200, 0));
+			}
+			if(input2.getText().equals("D-")){
+				s2 = 0.67;
+				grade2.setBackground(new Color(250, 200, 0));
+			}
+			if(input2.getText().equals("F")){
+				s2 = 0.00;
+				grade2.setBackground(Color.RED);
+			}
+			if(input3.getText().equals("A")){
+				s3 = 4.00;
+				grade3.setBackground(Color.GREEN);
+			}
+			if(input3.getText().equals("A-")){
+				s3 = 3.67;
+				grade3.setBackground(Color.GREEN);
+			}
+			if(input3.getText().equals("B+")){
+				s3 = 3.33;
+				grade3.setBackground(new Color(200, 250, 0));
+			}
+			if(input3.getText().equals("B")){
+				s3 = 3.00;
+				grade3.setBackground(new Color(200, 250, 0));
+			}
+			if(input3.getText().equals("B-")){
+				s3 = 2.67;
+				grade3.setBackground(new Color(200, 250, 0));
+			}
+			if(input3.getText().equals("C+")){
+				s3 = 2.33;
+				grade3.setBackground(new Color(250, 250, 0));
+			}
+			if(input3.getText().equals("C")){
+				s3 = 2.00;
+				grade3.setBackground(new Color(250, 250, 0));
+			}
+			if(input3.getText().equals("C-")){
+				s3 = 1.67;
+				grade3.setBackground(new Color(250, 250, 0));
+			}
+			if(input3.getText().equals("D+")){
+				s3 = 1.33;
+				grade3.setBackground(new Color(250, 200, 0));
+			}
+			if(input3.getText().equals("D")){
+				s3 = 1.00;
+				grade3.setBackground(new Color(250, 200, 0));
+			}
+			if(input3.getText().equals("D-")){
+				s3 = 0.67;
+				grade3.setBackground(new Color(250, 200, 0));
+			}
+			if(input3.getText().equals("F")){
+				s3 = 0.00;
+				grade3.setBackground(Color.RED);
+			}
+			if(input4.getText().equals("A")){
+				s4 = 4.00;
+				grade4.setBackground(Color.GREEN);
+			}
+			if(input4.getText().equals("A-")){
+				s4 = 3.67;
+				grade4.setBackground(Color.GREEN);
+			}
+			if(input4.getText().equals("B+")){
+				s4 = 3.33;
+				grade4.setBackground(new Color(200, 250, 0));
+			}
+			if(input4.getText().equals("B")){
+				s4 = 3.00;
+				grade4.setBackground(new Color(200, 250, 0));
+			}
+			if(input4.getText().equals("B-")){
+				s4 = 2.67;
+				grade4.setBackground(new Color(200, 250, 0));
+			}
+			if(input4.getText().equals("C+")){
+				s4 = 2.33;
+				grade4.setBackground(new Color(250, 250, 0));
+			}
+			if(input4.getText().equals("C")){
+				s4 = 2.00;
+				grade4.setBackground(new Color(250, 250, 0));
+			}
+			if(input4.getText().equals("C-")){
+				s4 = 1.67;
+				grade4.setBackground(new Color(250, 250, 0));
+			}
+			if(input4.getText().equals("D+")){
+				s4 = 1.33;
+				grade4.setBackground(new Color(250, 200, 0));
+			}
+			if(input4.getText().equals("D")){
+				s4 = 1.00;
+				grade4.setBackground(new Color(250, 200, 0));
+			}
+			if(input4.getText().equals("D-")){
+				s4 = 0.67;
+				grade4.setBackground(new Color(250, 200, 0));
+			}
+			if(input4.getText().equals("F")){
+				s4 = 0.00;
+				grade4.setBackground(Color.RED);
+			}
+			if(input5.getText().equals("A")){
+				s5 = 4.00;
+				grade5.setBackground(Color.GREEN);
+			}
+			if(input5.getText().equals("A-")){
+				s5 = 3.67;
+				grade5.setBackground(Color.GREEN);
+			}
+			if(input5.getText().equals("B+")){
+				s5 = 3.33;
+				grade5.setBackground(new Color(200, 250, 0));
+			}
+			if(input5.getText().equals("B")){
+				s5 = 3.00;
+				grade5.setBackground(new Color(200, 250, 0));
+			}
+			if(input5.getText().equals("B-")){
+				s5 = 2.67;
+				grade5.setBackground(new Color(200, 250, 0));
+			}
+			if(input5.getText().equals("C+")){
+				s5 = 2.33;
+				grade5.setBackground(new Color(250, 250, 0));
+			}
+			if(input5.getText().equals("C")){
+				s5 = 2.00;
+				grade5.setBackground(new Color(250, 250, 0));
+			}
+			if(input5.getText().equals("C-")){
+				s5 = 1.67;
+				grade5.setBackground(new Color(250, 250, 0));
+			}
+			if(input5.getText().equals("D+")){
+				s5 = 1.33;
+				grade5.setBackground(new Color(250, 200, 0));
+			}
+			if(input5.getText().equals("D")){
+				s5 = 1.00;
+				grade5.setBackground(new Color(250, 200, 0));
+			}
+			if(input5.getText().equals("D-")){
+				s5 = 0.67;
+				grade5.setBackground(new Color(250, 200, 0));
+			}
+			if(input5.getText().equals("F")){
+				s5 = 0.00;
+				grade5.setBackground(Color.RED);
+			}
+			if(input6.getText().equals("A")){
+				s6 = 4.00;
+				grade6.setBackground(Color.GREEN);
+			}
+			if(input6.getText().equals("A-")){
+				s6 = 3.67;
+				grade6.setBackground(Color.GREEN);
+			}
+			if(input6.getText().equals("B+")){
+				s6 = 3.33;
+				grade6.setBackground(new Color(200, 250, 0));
+			}
+			if(input6.getText().equals("B")){
+				s6 = 3.00;
+				grade6.setBackground(new Color(200, 250, 0));
+			}
+			if(input6.getText().equals("B-")){
+				s6 = 2.67;
+				grade6.setBackground(new Color(200, 250, 0));
+			}
+			if(input6.getText().equals("C+")){
+				s6 = 2.33;
+				grade6.setBackground(new Color(250, 250, 0));
+			}
+			if(input6.getText().equals("C")){
+				s6 = 2.00;
+				grade6.setBackground(new Color(250, 250, 0));
+			}
+			if(input6.getText().equals("C-")){
+				s6 = 1.67;
+				grade6.setBackground(new Color(250, 250, 0));
+			}
+			if(input6.getText().equals("D+")){
+				s6 = 1.33;
+				grade6.setBackground(new Color(250, 200, 0));
+			}
+			if(input6.getText().equals("D")){
+				s6 = 1.00;
+				grade6.setBackground(new Color(250, 200, 0));
+			}
+			if(input6.getText().equals("D-")){
+				s6 = 0.67;
+				grade6.setBackground(new Color(250, 200, 0));
+			}
+			if(input6.getText().equals("F")){
+				s6 = 0.00;
+				grade6.setBackground(Color.RED);
+			}
+			if(input7.getText().equals("A")){
+				s7 = 4.00;
+				grade7.setBackground(Color.GREEN);
+			}
+			if(input7.getText().equals("A-")){
+				s7 = 3.67;
+				grade7.setBackground(Color.GREEN);
+			}
+			if(input7.getText().equals("B+")){
+				s7 = 3.33;
+				grade7.setBackground(new Color(200, 250, 0));
+			}
+			if(input7.getText().equals("B")){
+				s7 = 3.00;
+				grade7.setBackground(new Color(200, 250, 0));
+			}
+			if(input7.getText().equals("B-")){
+				s7 = 2.67;
+				grade7.setBackground(new Color(200, 250, 0));
+			}
+			if(input7.getText().equals("C+")){
+				s7 = 2.33;
+				grade7.setBackground(new Color(250, 250, 0));
+			}
+			if(input7.getText().equals("C")){
+				s7 = 2.00;
+				grade7.setBackground(new Color(250, 250, 0));
+			}
+			if(input7.getText().equals("C-")){
+				s7 = 1.67;
+				grade7.setBackground(new Color(250, 250, 0));
+			}
+			if(input7.getText().equals("D+")){
+				s7 = 1.33;
+				grade7.setBackground(new Color(250, 200, 0));
+			}
+			if(input7.getText().equals("D")){
+				s7 = 1.00;
+				grade7.setBackground(new Color(250, 200, 0));
+			}
+			if(input7.getText().equals("D-")){
+				s7 = 0.67;
+				grade7.setBackground(new Color(250, 200, 0));
+			}
+			if(input7.getText().equals("F")){
+				s7 = 0.00;
+				grade7.setBackground(Color.RED);
+			}
+			if(input8.getText().equals("A")){
+				s8 = 4.00;
+				grade8.setBackground(Color.GREEN);
+			}
+			if(input8.getText().equals("A-")){
+				s8 = 3.67;
+				grade8.setBackground(Color.GREEN);
+			}
+			if(input8.getText().equals("B+")){
+				s8 = 3.33;
+				grade8.setBackground(new Color(200, 250, 0));
+			}
+			if(input8.getText().equals("B")){
+				s8 = 3.00;
+				grade8.setBackground(new Color(200, 250, 0));
+			}
+			if(input8.getText().equals("B-")){
+				s8 = 2.67;
+				grade8.setBackground(new Color(200, 250, 0));
+			}
+			if(input8.getText().equals("C+")){
+				s8 = 2.33;
+				grade8.setBackground(new Color(250, 250, 0));
+			}
+			if(input8.getText().equals("C")){
+				s8 = 2.00;
+				grade8.setBackground(new Color(250, 250, 0));
+			}
+			if(input8.getText().equals("C-")){
+				s8 = 1.67;
+				grade8.setBackground(new Color(250, 250, 0));
+			}
+			if(input8.getText().equals("D+")){
+				s8 = 1.33;
+				grade8.setBackground(new Color(250, 200, 0));
+			}
+			if(input8.getText().equals("D")){
+				s8 = 1.00;
+				grade8.setBackground(new Color(250, 200, 0));
+			}
+			if(input8.getText().equals("D-")){
+				s8 = 0.67;
+				grade8.setBackground(new Color(250, 200, 0));
+			}
+			if(input8.getText().equals("F")){
+				s8 = 0.00;
+				grade8.setBackground(Color.RED);
+			}
+			double average = (s1+s2+s3+s4+s5+s6+s7+s8)/8;
+			String gpastring = new Double(average).toString();
+			gpaText.setText(gpastring);
 		 }
-		 if(input1.getText().equals("A-")){
-			 b1 = 3.67;
-		 }
-		 if(input1.getText().equals("B+")){
-			 b1 = 3.33;
-		 }
-		 if(input1.getText().equals("B")){
-			 b1 = 3.00;
-		 }
-		 if(input1.getText().equals("B-")){
-			 b1 = 2.67;
-		 }
-		 if(input1.getText().equals("C+")){
-			 b1 = 2.33;
-		 }
-		 if(input1.getText().equals("C")){
-			 b1 = 2.00;
-		 }
-		 if(input1.getText().equals("C-")){
-			 b1 = 1.67;
-		 }
-		 if(input1.getText().equals("D+")){
-			 b1 = 1.33;
-		 }
-		 if(input1.getText().equals("D")){
-			 b1 = 1.00;
-		 }
-		 if(input1.getText().equals("D-")){
-			 b1 = 0.67;
-		 }
-		 if(input1.getText().equals("F")){
-			 b1 = 0.00;
-		 }
-	 }
-	 public void setLetterValue2(){
-		 if(input2.getText().equals("A")){
-			 b2 = 4.00;
-		 }
-		 if(input2.getText().equals("A-")){
-			 b2 = 3.67;
-		 }
-		 if(input2.getText().equals("B+")){
-			 b2 = 3.33;
-		 }
-		 if(input2.getText().equals("B")){
-			 b2 = 3.00;
-		 }
-		 if(input2.getText().equals("B-")){
-			 b2 = 2.67;
-		 }
-		 if(input2.getText().equals("C+")){
-			 b2 = 2.33;
-		 }
-		 if(input2.getText().equals("C")){
-			 b2 = 2.00;
-		 }
-		 if(input2.getText().equals("C-")){
-			 b2 = 1.67;
-		 }
-		 if(input2.getText().equals("D+")){
-			 b2 = 1.33;
-		 }
-		 if(input2.getText().equals("D")){
-			 b2 = 1.00;
-		 }
-		 if(input2.getText().equals("D-")){
-			 b2 = 0.67;
-		 }
-		 if(input2.getText().equals("F")){
-			 b2 = 0.00;
-		 }
-	 }
-	 public void setLetterValue3(){
-		 if(input3.getText().equals("A")){
-			 b3 = 4.00;
-		 }
-		 if(input3.getText().equals("A-")){
-			 b3 = 3.67;
-		 }
-		 if(input3.getText().equals("B+")){
-			 b3 = 3.33;
-		 }
-		 if(input3.getText().equals("B")){
-			 b3 = 3.00;
-		 }
-		 if(input3.getText().equals("B-")){
-			 b3 = 2.67;
-		 }
-		 if(input3.getText().equals("C+")){
-			 b3 = 2.33;
-		 }
-		 if(input3.getText().equals("C")){
-			 b3 = 2.00;
-		 }
-		 if(input3.getText().equals("C-")){
-			 b3 = 1.67;
-		 }
-		 if(input3.getText().equals("D+")){
-			 b3 = 1.33;
-		 }
-		 if(input3.getText().equals("D")){
-			 b3 = 1.00;
-		 }
-		 if(input3.getText().equals("D-")){
-			 b3 = 0.67;
-		 }
-		 if(input3.getText().equals("F")){
-			 b3 = 0.00;
-		 }
-	 }
-	 public void setLetterValue4(){
-		 if(input4.getText().equals("A")){
-			 b4 = 4.00;
-		 }
-		 if(input4.getText().equals("A-")){
-			 b4 = 3.67;
-		 }
-		 if(input4.getText().equals("B+")){
-			 b4 = 3.33;
-		 }
-		 if(input4.getText().equals("B")){
-			 b4 = 3.00;
-		 }
-		 if(input4.getText().equals("B-")){
-			 b4 = 2.67;
-		 }
-		 if(input4.getText().equals("C+")){
-			 b4 = 2.33;
-		 }
-		 if(input4.getText().equals("C")){
-			 b4 = 2.00;
-		 }
-		 if(input4.getText().equals("C-")){
-			 b4 = 1.67;
-		 }
-		 if(input4.getText().equals("D+")){
-			 b4 = 1.33;
-		 }
-		 if(input4.getText().equals("D")){
-			 b4 = 1.00;
-		 }
-		 if(input4.getText().equals("D-")){
-			 b4 = 0.67;
-		 }
-		 if(input4.getText().equals("F")){
-			 b4 = 0.00;
-		 }
-	 }
-	 public void setLetterValue5(){
-		 if(input5.getText().equals("A")){
-			 b5 = 4.00;
-		 }
-		 if(input5.getText().equals("A-")){
-			 b5 = 3.67;
-		 }
-		 if(input5.getText().equals("B+")){
-			 b5 = 3.33;
-		 }
-		 if(input5.getText().equals("B")){
-			 b5 = 3.00;
-		 }
-		 if(input5.getText().equals("B-")){
-			 b5 = 2.67;
-		 }
-		 if(input5.getText().equals("C+")){
-			 b5 = 2.33;
-		 }
-		 if(input5.getText().equals("C")){
-			 b5 = 2.00;
-		 }
-		 if(input5.getText().equals("C-")){
-			 b5 = 1.67;
-		 }
-		 if(input5.getText().equals("D+")){
-			 b5 = 1.33;
-		 }
-		 if(input5.getText().equals("D")){
-			 b5 = 1.00;
-		 }
-		 if(input5.getText().equals("D-")){
-			 b5 = 0.67;
-		 }
-		 if(input5.getText().equals("F")){
-			 b5 = 0.00;
-		 }
-	 }
-	 public void setLetterValue6(){
-		 if(input6.getText().equals("A")){
-			 b6 = 4.00;
-		 }
-		 if(input6.getText().equals("A-")){
-			 b6 = 3.67;
-		 }
-		 if(input6.getText().equals("B+")){
-			 b6 = 3.33;
-		 }
-		 if(input6.getText().equals("B")){
-			 b6 = 3.00;
-		 }
-		 if(input6.getText().equals("B-")){
-			 b6 = 2.67;
-		 }
-		 if(input6.getText().equals("C+")){
-			 b6 = 2.33;
-		 }
-		 if(input6.getText().equals("C")){
-			 b6 = 2.00;
-		 }
-		 if(input6.getText().equals("C-")){
-			 b6 = 1.67;
-		 }
-		 if(input6.getText().equals("D+")){
-			 b6 = 1.33;
-		 }
-		 if(input6.getText().equals("D")){
-			 b6 = 1.00;
-		 }
-		 if(input6.getText().equals("D-")){
-			 b6 = 0.67;
-		 }
-		 if(input6.getText().equals("F")){
-			 b6 = 0.00;
-		 }
-	 }
-	 public void setLetterValue7(){
-		 if(input7.getText().equals("A")){
-			 b7 = 4.00;
-		 }
-		 if(input7.getText().equals("A-")){
-			 b7 = 3.67;
-		 }
-		 if(input7.getText().equals("B+")){
-			 b7 = 3.33;
-		 }
-		 if(input7.getText().equals("B")){
-			 b7 = 3.00;
-		 }
-		 if(input7.getText().equals("B-")){
-			 b7 = 2.67;
-		 }
-		 if(input7.getText().equals("C+")){
-			 b7 = 2.33;
-		 }
-		 if(input7.getText().equals("C")){
-			 b7 = 2.00;
-		 }
-		 if(input7.getText().equals("C-")){
-			 b7 = 1.67;
-		 }
-		 if(input7.getText().equals("D+")){
-			 b7 = 1.33;
-		 }
-		 if(input7.getText().equals("D")){
-			 b7 = 1.00;
-		 }
-		 if(input7.getText().equals("D-")){
-			 b7 = 0.67;
-		 }
-		 if(input7.getText().equals("F")){
-			 b7 = 0.00;
-		 }
-	 }
-	 public void setLetterValue8(){
-		 if(input8.getText().equals("A")){
-			 b8 = 4.00;
-		 }
-		 if(input8.getText().equals("A-")){
-			 b8 = 3.67;
-		 }
-		 if(input8.getText().equals("B+")){
-			 b8 = 3.33;
-		 }
-		 if(input8.getText().equals("B")){
-			 b8 = 3.00;
-		 }
-		 if(input8.getText().equals("B-")){
-			 b8 = 2.67;
-		 }
-		 if(input8.getText().equals("C+")){
-			 b8 = 2.33;
-		 }
-		 if(input8.getText().equals("C")){
-			 b8 = 2.00;
-		 }
-		 if(input8.getText().equals("C-")){
-			 b8 = 1.67;
-		 }
-		 if(input8.getText().equals("D+")){
-			 b8 = 1.33;
-		 }
-		 if(input8.getText().equals("D")){
-			 b8 = 1.00;
-		 }
-		 if(input8.getText().equals("D-")){
-			 b8 = 0.67;
-		 }
-		 if(input8.getText().equals("F")){
-			 b8 = 0.00;
-		 }
-	 }
 
-	 public void displayGPA(){
-		 setLetterValue1();
-		 setLetterValue2();
-		 setLetterValue3();
-		 setLetterValue4();
-		 setLetterValue5();
-		 setLetterValue6();
-		 setLetterValue7();
-		 setLetterValue8();
-		 if(input1.getText() != null && input2.getText() != null && input3.getText() != null && input4.getText() != null &&
-				 input5.getText() != null && input6.getText() != null && input7.getText() != null && input8.getText() != null){
-			 gpa = (b1+b2+b3+b4+b5+b6+b7+b8)/8;
-			 gpaString = Double.toString(gpa);
-			 gpaText.setText(gpaString);
-	 }
+		
 	 }
 	 
 	 
-	 private void createTextField()
-	   {
+	 private void createTextField(){
 	      input1 = new JTextField();
 	      input1.setBounds(10, 30, 100, 30);
 	      input2 = new JTextField();
@@ -526,6 +571,8 @@ public class GPAFRAME extends JFrame{
 	      input6.addActionListener(listener);
 	      input7.addActionListener(listener);
 	      input8.addActionListener(listener);
+	      ActionListener listener2 = new AddActionListener2();
+	      
 	      	 grade1 = new JButton();
 			 grade2 = new JButton();
 			 grade3 = new JButton();
@@ -534,6 +581,7 @@ public class GPAFRAME extends JFrame{
 			 grade6 = new JButton();
 			 grade7 = new JButton();
 			 grade8 = new JButton();
+			 cb = new JButton();
 			 grade1.setBounds(35,70,50,50);
 			 grade2.setBounds(145,70,50,50);
 			 grade3.setBounds(255,70,50,50);
@@ -542,6 +590,7 @@ public class GPAFRAME extends JFrame{
 			 grade6.setBounds(585,70,50,50);
 			 grade7.setBounds(695,70,50,50);
 			 grade8.setBounds(805,70,50,50);
+			 cb.setBounds(915,70,50,50);
 			 label1 = new JLabel("Grade for A1");
 			 label1.setBounds(24, 5, 100, 30);
 			 label2 = new JLabel("Grade for A2");
@@ -568,9 +617,7 @@ public class GPAFRAME extends JFrame{
 			 pgpaText = new JTextArea();
 			 pgpaText.setBounds(1000, 30, 100, 30);
 			 pgpaText.setEditable(false);
-	   }
-	 
-	 
-	 
+			 cb.addActionListener(listener2);
+			 cb.setBackground(Color.BLUE);
+	 }
 }
-
