@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,6 +24,7 @@ public class GPAFRAME extends JFrame{
 	 private JButton grade7;
 	 private JButton grade8;
 	 private JButton cb;
+	 private JButton saveButton;
 	 private JLabel label1;
 	 private JLabel label2;
 	 private JLabel label3;
@@ -33,6 +35,7 @@ public class GPAFRAME extends JFrame{
 	 private JLabel label8;
 	 private JLabel gpalabel;
 	 private JLabel pgpalabel;
+	 private JLabel enterclasshere;
 	 private JTextField input1;
 	 private JTextField input2;
 	 private JTextField input3;
@@ -41,10 +44,7 @@ public class GPAFRAME extends JFrame{
 	 private JTextField input6;
 	 private JTextField input7;
 	 private JTextField input8;
-	 private double gpa;
-	 private double pgpa;
-	 private String gpaString;
-	 private String pgpaString;
+	 private JTextField enterclassheretext;
 	 
 	 public GPAFRAME(){
 	      createPanel(); 
@@ -62,6 +62,7 @@ public class GPAFRAME extends JFrame{
 		 p.add(input6);
 		 p.add(input7);
 		 p.add(input8);
+		 p.add(enterclassheretext);
 		 p.add(grade1);
 		 p.add(grade2);
 		 p.add(grade3);
@@ -70,6 +71,7 @@ public class GPAFRAME extends JFrame{
 		 p.add(grade6);
 		 p.add(grade7);
 		 p.add(grade8);
+		 p.add(saveButton);
 		 p.add(label1);
 		 p.add(label2);
 		 p.add(label3);
@@ -78,6 +80,7 @@ public class GPAFRAME extends JFrame{
 		 p.add(label6);
 		 p.add(label7);
 		 p.add(label8);
+		 p.add(enterclasshere);
 		 p.add(cb);
 		 p.add(gpalabel);
 		 p.add(pgpalabel);
@@ -544,8 +547,14 @@ public class GPAFRAME extends JFrame{
 		
 	 }
 	 
+	 class AddActionListener3 implements ActionListener{
+		 public void actionPerformed(ActionEvent event){
+			 ClassFile filekslk = new ClassFile();
+		 }
+	 }
 	 
-	 private void createTextField(){
+	 
+	 public void createTextField(){
 	      input1 = new JTextField();
 	      input1.setBounds(10, 30, 100, 30);
 	      input2 = new JTextField();
@@ -562,6 +571,8 @@ public class GPAFRAME extends JFrame{
 	      input7.setBounds(670, 30, 100, 30);
 	      input8 = new JTextField();
 	      input8.setBounds(780, 30, 100, 30);
+	      enterclassheretext = new JTextField();
+	      enterclassheretext.setBounds(24,240,150,30);
 	      ActionListener listener = new AddActionListener();
 	      input1.addActionListener(listener);
 	      input2.addActionListener(listener);
@@ -582,6 +593,8 @@ public class GPAFRAME extends JFrame{
 			 grade7 = new JButton();
 			 grade8 = new JButton();
 			 cb = new JButton();
+			 saveButton = new JButton("save");
+			 ActionListener listener3 = new AddActionListener3();
 			 grade1.setBounds(35,70,50,50);
 			 grade2.setBounds(145,70,50,50);
 			 grade3.setBounds(255,70,50,50);
@@ -591,6 +604,8 @@ public class GPAFRAME extends JFrame{
 			 grade7.setBounds(695,70,50,50);
 			 grade8.setBounds(805,70,50,50);
 			 cb.setBounds(915,70,50,50);
+			 saveButton.setBounds(50,280,90,30);
+			 saveButton.addActionListener(listener3);
 			 label1 = new JLabel("Grade for A1");
 			 label1.setBounds(24, 5, 100, 30);
 			 label2 = new JLabel("Grade for A2");
@@ -611,6 +626,8 @@ public class GPAFRAME extends JFrame{
 			 gpalabel.setBounds(904, 5, 100, 30);
 			 pgpalabel = new JLabel("Predicted GPA");
 			 pgpalabel.setBounds(1008, 5, 100, 30);
+			 enterclasshere = new JLabel("Enter the Class's name here");
+			 enterclasshere.setBounds(24,200,200,30);
 			 gpaText = new JTextArea();
 			 gpaText.setBounds(890, 30, 100, 30);
 			 gpaText.setEditable(false);
@@ -620,4 +637,9 @@ public class GPAFRAME extends JFrame{
 			 cb.addActionListener(listener2);
 			 cb.setBackground(Color.BLUE);
 	 }
+	 
+	 public String getenterclassheretext(){
+		 return enterclassheretext.getText();
+	 }
 }
+
