@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -549,7 +550,13 @@ public class GPAFRAME extends JFrame{
 	 
 	 class AddActionListener3 implements ActionListener{
 		 public void actionPerformed(ActionEvent event){
-			 ClassFile filekslk = new ClassFile();
+			 ClassFile saveFile = new ClassFile();
+			 try {
+				saveFile.addClassName("\n" + enterclassheretext.getText());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			 enterclassheretext.setText("");
 		 }
 	 }
 	 
