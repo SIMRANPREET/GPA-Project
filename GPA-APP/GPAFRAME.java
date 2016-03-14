@@ -218,30 +218,7 @@ public class GPAFRAME extends JFrame{
 	         if(input8.getText() != null){
 	 	        	 grade8.setText(input8.getText());
 	 	         }
-       	 if(input1.equals("CLEAR")){
-       		 grade1.setText(null);
-       	 }
-       	 if(input2.equals("CLEAR")){
-       		 grade2.setText(null);
-       	 }
-       	 if(input3.equals("CLEAR")){
-       		 grade3.setText(null);
-       	 }
-       	 if(input4.equals("CLEAR")){
-       		 grade4.setText(null);
-       	 }
-       	 if(input5.equals("CLEAR")){
-       		 grade5.setText(null);
-       	 }
-       	 if(input6.equals("CLEAR")){
-       		 grade6.setText(null);
-       	 }
-       	 if(input7.equals("CLEAR")){
-       		 grade7.setText(null);
-       	 }
-       	 if(input8.equals("CLEAR")){
-       		 grade8.setText(null);
-       	 }
+       	 
        	double s1=0;
 		double s2=0;
 		double s3=0;
@@ -634,6 +611,38 @@ public class GPAFRAME extends JFrame{
 			s8 = 0.00;
 			grade8.setBackground(Color.RED);
 		}
+		if(input1.getText().equals("CLEAR")){
+      		 grade1.setText(null);
+      		 grade1.setBackground(Color.BLACK);
+      	 }
+      	 if(input2.getText().equals("CLEAR")){
+      		 grade2.setText(null);
+      		 grade2.setBackground(Color.BLACK);
+      	 }
+      	 if(input3.getText().equals("CLEAR")){
+      		 grade3.setText(null);
+      		 grade3.setBackground(Color.BLACK);
+      	 }
+      	 if(input4.getText().equals("CLEAR")){
+      		 grade4.setText(null);
+      		 grade4.setBackground(Color.BLACK);
+      	 }
+      	 if(input5.getText().equals("CLEAR")){
+      		 grade5.setText(null);
+      		 grade5.setBackground(Color.BLACK);
+      	 }
+      	 if(input6.getText().equals("CLEAR")){
+      		 grade6.setText(null);
+      		 grade6.setBackground(Color.BLACK);
+      	 }
+      	 if(input7.getText().equals("CLEAR")){
+      		 grade7.setText(null);
+      		 grade7.setBackground(Color.BLACK);
+      	 }
+      	 if(input8.getText().equals("CLEAR")){
+      		 grade8.setText(null);
+      		 grade8.setBackground(Color.BLACK);
+      	 }
 		double average = (s1+s2+s3+s4+s5+s6+s7+s8)/8;
 		String gpastring = new Double(average).toString();
 		gpaText.setText(gpastring);
