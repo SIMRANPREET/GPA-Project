@@ -9,8 +9,10 @@ public class ClassFile {
 	public void addClassName(String className) throws IOException{
 	File file = new File("High School Career Classes");
 	BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
+	if(className != null && !className.isEmpty()){
 	bw.write(className);
 	bw.newLine();
+	}
 	bw.close();
 }
 }
