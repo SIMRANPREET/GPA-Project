@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,7 +24,7 @@ public class ShowClassFrame extends JFrame {
 	}
 	
 	private void setClassLabel() throws IOException{
-		File file = new File("High School Career Classes");
+		File file = new File("High School Career Classes.txt");
 		Scanner files = new Scanner(file);
 		int y = 0;
 		int x = 10;
