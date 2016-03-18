@@ -27,6 +27,7 @@ public class GPAFRAME extends JFrame{
 	 private JButton grade7;
 	 private JButton grade8;
 	 private JButton saveButton;
+	 private JButton showClassFrameButton;
 	 private JLabel label1;
 	 private JLabel label2;
 	 private JLabel label3;
@@ -87,23 +88,8 @@ public class GPAFRAME extends JFrame{
 		 p.add(pgpalabel);
 		 p.add(gpaText);
 		 p.add(pgpaText);
+		 p.add(showClassFrameButton);
 		 add(p);
-	 }
-	 
-	 
-	 
-	 
-	 
-	 class AddActionListener3 implements ActionListener{
-		 public void actionPerformed(ActionEvent event){
-			 ClassFile saveFile = new ClassFile();
-			 try {
-				saveFile.addClassName(enterclassheretext.getText());
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			 enterclassheretext.setText("");
-		 }
 	 }
 	 
 	 
@@ -144,7 +130,8 @@ public class GPAFRAME extends JFrame{
 			 grade7 = new JButton();
 			 grade8 = new JButton();
 			 saveButton = new JButton("save");
-			 ActionListener listener3 = new AddActionListener3();
+			 ActionListener listener3 = new saveButtonListener();
+			 showClassFrameButton = new JButton("Show All My Classes");
 			 grade1.setBounds(35,70,50,50);
 			 grade2.setBounds(145,70,50,50);
 			 grade3.setBounds(255,70,50,50);
@@ -154,6 +141,7 @@ public class GPAFRAME extends JFrame{
 			 grade7.setBounds(695,70,50,50);
 			 grade8.setBounds(805,70,50,50);
 			 saveButton.setBounds(50,280,90,30);
+			 showClassFrameButton.setBounds(22,320,153,30);
 			 saveButton.addActionListener(listener3);
 			 label1 = new JLabel("Grade for A1");
 			 label1.setBounds(24, 5, 100, 30);
@@ -651,4 +639,24 @@ public class GPAFRAME extends JFrame{
 	     }
 	     public void keyReleased(KeyEvent e){}
 	   }
+	 
+	 private class saveButtonListener implements ActionListener{
+		 public void actionPerformed(ActionEvent event){
+			 ClassFile saveFile = new ClassFile();
+			 try {
+				saveFile.addClassName(enterclassheretext.getText());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			 enterclassheretext.setText("");
+		 }
+	 }
+	 
+	 private class showClassFrameButtonListener implements ActionListener{
+		 public void actionPerformed(ActionEvent event){
+				if(event.getSource() == showClassFrameButton){
+					if()
+				}
+		 }
+	 }
 }
