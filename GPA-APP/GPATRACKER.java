@@ -1,10 +1,14 @@
 import java.io.IOException;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
 
-
+/*
+ * The class with the entry point. Creates the main GUI frame
+ * and also loads a frame that displays all the courses in 
+ * the file. (the file that saves all the course names using
+ * the ClassFile class)
+ */
 
 public class GPATRACKER{
 
