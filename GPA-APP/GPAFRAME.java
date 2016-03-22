@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,6 +11,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/*
+ * The main GUI Frame, holds all the text boxes, buttons, labels, and
+ * performs the calculations for GPA. Is partially dependent on the ClassFile
+ * class to save the text entered into the text box above the save button.
+ */
 public class GPAFRAME extends JFrame{
 	 private static final int FRAME_WIDTH = 1130;
 	 private static final int FRAME_HEIGHT = 500;
@@ -49,14 +53,21 @@ public class GPAFRAME extends JFrame{
 	 private JTextField input8;
 	 private JTextField enterclassheretext;
 	 
+	 /*
+	  * The method that creates and displays the frame.
+	  */
 	 public GPAFRAME(){
-	      createPanel(); 
-	      
+	      createPanel();
 	      setSize(FRAME_WIDTH, FRAME_HEIGHT);
 	 }
+	 
+	 /*
+	  * This is the panel that contains all the buttons, text boxes, 
+	  * and labels.
+	  */
 	 private void createPanel(){
 		 JPanel p = new JPanel(null);
-		  createTextField();
+		  createGUIComponents();
 		 p.add(input1);
 		 p.add(input2);
 		 p.add(input3);
@@ -92,8 +103,11 @@ public class GPAFRAME extends JFrame{
 		 add(p);
 	 }
 	 
-	 
-	 public void createTextField(){
+	 /*
+	  * Creates all the text boxes, buttons, and labels.
+	  * Also assigns listeners to their respective functionality.  
+	  */
+	 public void createGUIComponents(){
 	      input1 = new JTextField();
 	      input1.setBounds(10, 30, 100, 30);
 	      input2 = new JTextField();
@@ -173,10 +187,10 @@ public class GPAFRAME extends JFrame{
 			 pgpaText.setEditable(false);
 	 }
 	 
-	 public String getenterclassheretext(){
-		 return enterclassheretext.getText();
-	 }
-	 
+	 /*
+	  * The listener that handles the calculation of the GPA and the
+	  * coloring of the buttons.
+	  */
 	 private class InputKeyListener implements KeyListener
 	   {
 	     public void keyTyped(KeyEvent e){}
@@ -640,6 +654,11 @@ public class GPAFRAME extends JFrame{
 	     public void keyReleased(KeyEvent e){}
 	   }
 	 
+	 /*
+	  * The listener that calls the ClassFile file and
+	  * retrieves the text from the text box above the save button
+	  * and using the addClassName method adds that text into the file.
+	  */
 	 private class saveButtonListener implements ActionListener{
 		 public void actionPerformed(ActionEvent event){
 			 ClassFile saveFile = new ClassFile();
@@ -649,14 +668,6 @@ public class GPAFRAME extends JFrame{
 				e.printStackTrace();
 			}
 			 enterclassheretext.setText("");
-		 }
-	 }
-	 
-	 private class showClassFrameButtonListener implements ActionListener{
-		 public void actionPerformed(ActionEvent event){
-				if(event.getSource() == showClassFrameButton){
-					if()
-				}
 		 }
 	 }
 }
