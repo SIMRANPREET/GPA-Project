@@ -1,31 +1,38 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Scanner;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/*
+ * This class is another frame that displays all
+ * the courses that have been saved by the user in 
+ * the file created in the ClassFile class.
+ */
 
 public class ShowClassFrame extends JFrame {
 	private static final int FRAME_WIDTH = 1130;
 	private static final int FRAME_HEIGHT = 550;
 	public JLabel c1;
-	 JPanel p = new JPanel(null);
+	JPanel p = new JPanel(null);
+	 
+	/*
+	 * Calls the setClassLabel method which displays
+	 * the contents of the file.
+	 */
 	public ShowClassFrame() throws IOException{
-	      createPanel(); 
+	      setClassLabel();
+	      add(p);
 	      setSize(FRAME_WIDTH, FRAME_HEIGHT);
 	 }
 	
-	private void createPanel() throws IOException{
-		 setClassLabel();
-		 add(p);
-	}
-	
+	/*
+	 * This method opens the file that was created in the
+	 * ClassFile class for reading. Only reads the file not 
+	 * writes to it. It creates a new JLabel for every course
+	 * in the file and displays it with a maximum of 10 courses 
+	 * per column and a maximum of 4 columns.
+	 */
 	private void setClassLabel() throws IOException{
-		File file = new File("High School Career Classes.txt");
-		Scanner files = new Scanner(file);
+		Scanner files = new Scanner(new File("High School Career Classes.txt"));
 		int y = 0;
 		int x = 10;
 		int labelcount = 0;
@@ -49,6 +56,7 @@ public class ShowClassFrame extends JFrame {
 			y = 0;
 		}
 		}
+		files.close();
 	}
 
 }
