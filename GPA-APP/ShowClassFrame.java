@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -7,7 +11,6 @@ import javax.swing.JPanel;
  * the courses that have been saved by the user in 
  * the file created in the ClassFile class.
  */
-
 public class ShowClassFrame extends JFrame {
 	private static final int FRAME_WIDTH = 1130;
 	private static final int FRAME_HEIGHT = 550;
@@ -17,12 +20,13 @@ public class ShowClassFrame extends JFrame {
 	/*
 	 * Calls the setClassLabel method which displays
 	 * the contents of the file.
+	 * @throws IOException
 	 */
 	public ShowClassFrame() throws IOException{
-	      setClassLabel();
-	      add(p);
-	      setSize(FRAME_WIDTH, FRAME_HEIGHT);
-	 }
+		setClassLabel();
+		add(p);
+	    setSize(FRAME_WIDTH, FRAME_HEIGHT);
+	}
 	
 	/*
 	 * This method opens the file that was created in the
@@ -30,6 +34,7 @@ public class ShowClassFrame extends JFrame {
 	 * writes to it. It creates a new JLabel for every course
 	 * in the file and displays it with a maximum of 10 courses 
 	 * per column and a maximum of 4 columns.
+	 * @throws IOException
 	 */
 	private void setClassLabel() throws IOException{
 		Scanner files = new Scanner(new File("High School Career Classes.txt"));
@@ -37,26 +42,25 @@ public class ShowClassFrame extends JFrame {
 		int x = 10;
 		int labelcount = 0;
 		while(files.hasNextLine()){
-		String class1 = files.nextLine();
-		c1 = new JLabel(class1);
-		c1.setBounds(x,y,200,50);
-		p.add(c1);
-		y = y + 50;
-		labelcount++;
-		if(labelcount==10){
-			x = x + 300;
-			y = 0;
-		}
-		if(labelcount == 20){
-			x = x + 300;
-			y = 0;
-		}
-		if(labelcount == 30){
-			x = x +300;
-			y = 0;
-		}
+			String class1 = files.nextLine();
+			c1 = new JLabel(class1);
+			c1.setBounds(x,y,200,50);
+			p.add(c1);
+			y = y + 50;
+			labelcount++;
+			if(labelcount==10){
+				x = x + 300;
+				y = 0;
+			}
+			if(labelcount == 20){
+				x = x + 300;
+				y = 0;
+			}
+			if(labelcount == 30){
+				x = x +300;
+				y = 0;
+			}
 		}
 		files.close();
 	}
-
 }
