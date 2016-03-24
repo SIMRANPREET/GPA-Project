@@ -146,6 +146,8 @@ public class GPAFRAME extends JFrame{
 			 saveButton = new JButton("save");
 			 ActionListener listener3 = new saveButtonListener();
 			 showClassFrameButton = new JButton("Show All My Classes");
+			 ActionListener scfbl = new showClassFrameButtonListener();
+			 showClassFrameButton.addActionListener(scfbl);
 			 grade1.setBounds(35,70,50,50);
 			 grade2.setBounds(145,70,50,50);
 			 grade3.setBounds(255,70,50,50);
@@ -670,4 +672,16 @@ public class GPAFRAME extends JFrame{
 			 enterclassheretext.setText("");
 		 }
 	 }
+	private class showClassFrameButtonListener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+			ShowClassFrame scf;
+			try {
+				scf = new ShowClassFrame();
+				scf.setVisible(true);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+	}
+	}
 }
