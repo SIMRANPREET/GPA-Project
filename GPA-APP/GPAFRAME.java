@@ -65,7 +65,7 @@ public class GPAFRAME extends JFrame{
 	  * and labels.
 	  */
 	 private void createPanel(){
-	 	 JPanel p = new JPanel(null);
+		 JPanel p = new JPanel(null);
 		 createGUIComponents();
 		 p.add(input1);
 		 p.add(input2);
@@ -100,15 +100,15 @@ public class GPAFRAME extends JFrame{
 		 p.add(pgpaText);
 		 p.add(showClassFrameButton);
 		 add(p);
-	}
+		 }
 	 
 	 /*
 	  * Creates all the text boxes, buttons, and labels.
 	  * Also assigns listeners to their respective functionality.  
 	  */
 	 public void createGUIComponents(){
-	     input1 = new JTextField();
-             input1.setBounds(10, 30, 100, 30);
+		 input1 = new JTextField();
+		 input1.setBounds(10, 30, 100, 30);
 	     input2 = new JTextField();
 	     input2.setBounds(120, 30, 100, 30);
 	     input3 = new JTextField();
@@ -135,57 +135,57 @@ public class GPAFRAME extends JFrame{
 	     input8.addKeyListener(new InputKeyListener());  
 	     grade1 = new JButton();
 	     grade2 = new JButton();
-		 grade3 = new JButton();
-		 grade4 = new JButton();
-		 grade5 = new JButton();
-		 grade6 = new JButton();
-		 grade7 = new JButton();
-		 grade8 = new JButton();
-		 saveButton = new JButton("save");
-		 ActionListener listener3 = new saveButtonListener();
-		 showClassFrameButton = new JButton("Show All My Classes");
-		 ActionListener scfbl = new showClassFrameButtonListener();
-		 showClassFrameButton.addActionListener(scfbl);
-		 grade1.setBounds(35,70,50,50);
-		 grade2.setBounds(145,70,50,50);
-		 grade3.setBounds(255,70,50,50);
-		 grade4.setBounds(365,70,50,50);
-		 grade5.setBounds(475,70,50,50);
-		 grade6.setBounds(585,70,50,50);
-		 grade7.setBounds(695,70,50,50);
-		 grade8.setBounds(805,70,50,50);
-		 saveButton.setBounds(50,280,90,30);
-		 showClassFrameButton.setBounds(22,320,153,30);
-		 saveButton.addActionListener(listener3);
-		 label1 = new JLabel("Grade for A1");
-		 label1.setBounds(24, 5, 100, 30);
-		 label2 = new JLabel("Grade for A2");
-		 label2.setBounds(134, 5, 100, 30);
-		 label3 = new JLabel("Grade for A3");
-		 label3.setBounds(244, 5, 100, 30);
-		 label4 = new JLabel("Grade for A4");
-		 label4.setBounds(354, 5, 100, 30);
-		 label5 = new JLabel("Grade for B1");
-		 label5.setBounds(464, 5, 100, 30);
-		 label6 = new JLabel("Grade for B2");
-		 label6.setBounds(574, 5, 100, 30);
-		 label7 = new JLabel("Grade for B3");
-		 label7.setBounds(684, 5, 100, 30);
-		 label8 = new JLabel("Grade for B4");
-		 label8.setBounds(794, 5, 100, 30);
-		 gpalabel = new JLabel("        GPA");
-		 gpalabel.setBounds(904, 5, 100, 30);
-		 pgpalabel = new JLabel("Predicted GPA");
-		 pgpalabel.setBounds(1008, 5, 100, 30);
-		 enterclasshere = new JLabel("Enter the Class's name here");
-		 enterclasshere.setBounds(24,200,200,30);
-		 gpaText = new JTextArea();
-		 gpaText.setBounds(890, 30, 100, 30);
-		 gpaText.setEditable(false);
-		 pgpaText = new JTextArea();
-		 pgpaText.setBounds(1000, 30, 100, 30);
-		 pgpaText.setEditable(false);
-		 }
+	     grade3 = new JButton();
+	     grade4 = new JButton();
+ 	     grade5 = new JButton();
+	     grade6 = new JButton();
+	     grade7 = new JButton();
+	     grade8 = new JButton();
+	     saveButton = new JButton("save");
+	     ActionListener listener3 = new saveButtonListener();
+             showClassFrameButton = new JButton("Show All My Classes");
+	     ActionListener scfbl = new showClassFrameButtonListener();
+             showClassFrameButton.addActionListener(scfbl);
+	     grade1.setBounds(35,70,50,50);
+	     grade2.setBounds(145,70,50,50);
+	     grade3.setBounds(255,70,50,50);
+	     grade4.setBounds(365,70,50,50);
+	     grade5.setBounds(475,70,50,50);
+	     grade6.setBounds(585,70,50,50);
+	     grade7.setBounds(695,70,50,50);
+	     grade8.setBounds(805,70,50,50);
+	     saveButton.setBounds(50,280,90,30);
+	     showClassFrameButton.setBounds(22,320,153,30);
+	     saveButton.addActionListener(listener3);
+	     label1 = new JLabel("Grade for A1");
+	     label1.setBounds(24, 5, 100, 30);
+	     label2 = new JLabel("Grade for A2");
+	     label2.setBounds(134, 5, 100, 30);
+             label3 = new JLabel("Grade for A3");
+	     label3.setBounds(244, 5, 100, 30);
+             label4 = new JLabel("Grade for A4");
+	     label4.setBounds(354, 5, 100, 30);
+	     label5 = new JLabel("Grade for B1");
+             label5.setBounds(464, 5, 100, 30);
+	     label6 = new JLabel("Grade for B2");
+	     label6.setBounds(574, 5, 100, 30);
+	     label7 = new JLabel("Grade for B3");
+	     label7.setBounds(684, 5, 100, 30);
+             label8 = new JLabel("Grade for B4");
+	     label8.setBounds(794, 5, 100, 30);
+	     gpalabel = new JLabel("        GPA");
+	     gpalabel.setBounds(904, 5, 100, 30);
+	     pgpalabel = new JLabel("Predicted GPA");
+	     pgpalabel.setBounds(1008, 5, 100, 30);
+	     enterclasshere = new JLabel("Enter the Class's name here");
+	     enterclasshere.setBounds(24,200,200,30);
+	     gpaText = new JTextArea();
+	     gpaText.setBounds(890, 30, 100, 30);
+	     gpaText.setEditable(false);
+	     pgpaText = new JTextArea();
+	     pgpaText.setBounds(1000, 30, 100, 30);
+	     pgpaText.setEditable(false);
+        }
 	 
 	 /*
 	  * The listener that handles the calculation of the GPA and the
