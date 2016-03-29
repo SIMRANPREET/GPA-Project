@@ -2,6 +2,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
  * A class that creates a file and then writes to it only.
@@ -16,12 +18,47 @@ public class ClassFile {
 	 * @throws IOException
 	 */
 	public void addClassName(String className) throws IOException{
-		File file = new File("High School Career Classes.txt");
-		BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
-		if(className != null && !className.isEmpty()){
-			bw.write(className);
+		String upperCaseClassName = className.toUpperCase();
+		ArrayList<String> list = new ArrayList<String>(Arrays.asList(upperCaseClassName.split(" ")));
+		System.out.println(list);
+		File mathFile = new File("Math Classes.txt");
+		File englishFile = new File("English Classes.txt");
+		File scienceFile = new File("Science Classes.txt");
+		File socialStudiesFile = new File("Social Studies Classes.txt");
+		File electiveFile = new File("Elective Classes.txt");
+		if(list.contains("MATH") || list.contains("CALCULUS") || list.contains("STATISTICS")){
+			BufferedWriter bw = new BufferedWriter(new FileWriter(mathFile,true));
+			bw.write(upperCaseClassName);
 			bw.newLine();
+			bw.close();
 		}
-		bw.close();
+		if(list.contains("ENGLISH")){
+			BufferedWriter bw = new BufferedWriter(new FileWriter(englishFile,true));
+			bw.write(upperCaseClassName);
+			bw.newLine();
+			bw.close();
+		}
+		if(list.contains("BIOLOGY") || list.contains("CHEMISTRY") || list.contains("PHYSICS")){
+			BufferedWriter bw = new BufferedWriter(new FileWriter(scienceFile,true));
+			bw.write(upperCaseClassName);
+			bw.newLine();
+			bw.close();
+		}
+		if(list.contains("HISTORY") || list.contains("PYSCHOLOGY") || list.contains("TOK")){
+			BufferedWriter bw = new BufferedWriter(new FileWriter(socialStudiesFile,true));
+			bw.write(upperCaseClassName);
+			bw.newLine();
+			bw.close();
+		}
+		if(!list.contains("MATH") && !list.contains("CALCULUS") && !list.contains("STATISTICS") 
+				&& !list.contains("ENGLISH") && !list.contains("BIOLOGY") && !list.contains("CHEMISTRY") 
+				&& !list.contains("PHYSICS") && !list.contains("HISTORY") && !list.contains("PYSCHOLOGY")
+				&& !list.contains("TOK")){
+			BufferedWriter bw = new BufferedWriter(new FileWriter(electiveFile,true));
+			bw.write(upperCaseClassName);
+			bw.newLine();
+			bw.close();
+		}
 	}
 }
+
