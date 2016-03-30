@@ -31,6 +31,9 @@ public class GPAFRAME extends JFrame{
 	private JButton grade8;
 	private JButton saveButton;
 	private JButton showClassFrameButton;
+	private JButton showMathClasses;
+	private JButton showEnglishClasses;
+	private JButton showSocialStudiesClassesButton;
 	private JLabel label1;
 	private JLabel label2;
 	private JLabel label3;
@@ -99,6 +102,9 @@ public class GPAFRAME extends JFrame{
 		 p.add(gpaText);
 		 p.add(pgpaText);
 		 p.add(showClassFrameButton);
+		 p.add(showMathClasses);
+		 p.add(showEnglishClasses);
+		 p.add(showSocialStudiesClassesButton);
 		 add(p);
 		 }
 	 
@@ -144,8 +150,17 @@ public class GPAFRAME extends JFrame{
 		 saveButton = new JButton("save");
 		 ActionListener listener3 = new saveButtonListener();
 		 showClassFrameButton = new JButton("Show All My Classes");
-		 ActionListener scfbl = new showClassFrameButtonListener();
-		 showClassFrameButton.addActionListener(scfbl);
+		 ActionListener sacfbl = new showAllClassesFrameButtonListener();
+		 showClassFrameButton.addActionListener(sacfbl);
+		 ActionListener smcbl = new showMathClassesButtonListener();
+		 showMathClasses = new JButton("Show Math Classes");
+		 showMathClasses.addActionListener(smcbl);
+		 ActionListener secbl = new showEnglishClassesButtonListener();
+		 showEnglishClasses = new JButton("Show English Classes");
+		 showEnglishClasses.addActionListener(secbl);
+		 ActionListener ssscbl = new showSocialStudiesClassesButtonListener();
+		 showSocialStudiesClassesButton = new JButton("Show Social Studies Classes");
+		 showSocialStudiesClassesButton.addActionListener(ssscbl);
 		 grade1.setBounds(35,70,50,50);
 		 grade2.setBounds(145,70,50,50);
 		 grade3.setBounds(255,70,50,50);
@@ -156,6 +171,9 @@ public class GPAFRAME extends JFrame{
 		 grade8.setBounds(805,70,50,50);
 		 saveButton.setBounds(50,280,90,30);
 		 showClassFrameButton.setBounds(22,320,153,30);
+		 showMathClasses.setBounds(230,200,153,30);
+		 showEnglishClasses.setBounds(230,240,153,30);
+		 showSocialStudiesClassesButton.setBounds(230,280,153,30);
 		 saveButton.addActionListener(listener3);
 		 label1 = new JLabel("Grade for A1");
 		 label1.setBounds(24, 5, 100, 30);
@@ -677,11 +695,11 @@ public class GPAFRAME extends JFrame{
 	  * This listener creates a JFrame from the ShowClassFrame class and displays
 	  * all the courses saved in the file in list format.
 	  */
-	 private class showClassFrameButtonListener implements ActionListener{
+	 private class showAllClassesFrameButtonListener implements ActionListener{
 		public void actionPerformed(ActionEvent event){
-			ShowClassFrame scf;
+			ShowAllClasses scf;
 			try {
-				scf = new ShowClassFrame();
+				scf = new ShowAllClasses();
 				scf.setVisible(true);
 			} 
 			catch (IOException e) {
@@ -689,4 +707,43 @@ public class GPAFRAME extends JFrame{
 				}
 			}
 		}
+	 
+	 private class showMathClassesButtonListener implements ActionListener{
+		 public void actionPerformed(ActionEvent event){
+			 ShowMathClasses smc;
+			 try{
+				 smc = new ShowMathClasses();
+				 smc.setVisible(true);
+			 }
+			 catch (IOException e){
+				 e.printStackTrace();
+			 }
+		 }
+	 }
+	 
+	 private class showEnglishClassesButtonListener implements ActionListener{
+		 public void actionPerformed(ActionEvent event){
+			 ShowEnglishClasses sec;
+			 try{
+				 sec = new ShowEnglishClasses();
+				 sec.setVisible(true);
+			 }
+			 catch (IOException e){
+				 e.printStackTrace();
+			 }
+		 }
+	 }
+	 
+	 private class showSocialStudiesClassesButtonListener implements ActionListener{
+		 public void actionPerformed(ActionEvent event){
+			 ShowSocialStudiesClasses ssc;
+			 try{
+				 ssc = new ShowSocialStudiesClasses();
+				 ssc.setVisible(true);
+			 }
+			 catch (IOException e){
+				 e.printStackTrace();
+			 }
+		 }
+	 }
 }
