@@ -20,7 +20,11 @@ public class ClassFile {
 	public void addClassName(String className) throws IOException{
 		String upperCaseClassName = className.toUpperCase();
 		ArrayList<String> list = new ArrayList<String>(Arrays.asList(upperCaseClassName.split(" ")));
-		System.out.println(list);
+		File allClasses = new File("High School Career Classes.txt");
+		BufferedWriter tw = new BufferedWriter(new FileWriter(allClasses,true));
+		tw.write(upperCaseClassName);
+		tw.newLine();
+		tw.close();
 		File mathFile = new File("Math Classes.txt");
 		File englishFile = new File("English Classes.txt");
 		File scienceFile = new File("Science Classes.txt");
@@ -61,4 +65,3 @@ public class ClassFile {
 		}
 	}
 }
-
