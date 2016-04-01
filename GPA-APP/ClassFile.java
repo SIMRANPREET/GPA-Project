@@ -20,8 +20,9 @@ public class ClassFile {
 	public void addClassName(String className) throws IOException{
 		String upperCaseClassName = className.toUpperCase();
 		ArrayList<String> list = new ArrayList<String>(Arrays.asList(upperCaseClassName.split(" ")));
-		File allClasses = new File("High School Career Classes.txt");
-		BufferedWriter tw = new BufferedWriter(new FileWriter(allClasses,true));
+		System.out.println(list);
+		File allClassesFile = new File("High School Career Classes.txt");
+		BufferedWriter tw = new BufferedWriter(new FileWriter(allClassesFile,true));
 		tw.write(upperCaseClassName);
 		tw.newLine();
 		tw.close();
@@ -30,7 +31,7 @@ public class ClassFile {
 		File scienceFile = new File("Science Classes.txt");
 		File socialStudiesFile = new File("Social Studies Classes.txt");
 		File electiveFile = new File("Elective Classes.txt");
-		if(list.contains("MATH") || list.contains("CALCULUS") || list.contains("STATISTICS")){
+		if(list.contains("MATH") || list.contains("MATHEMATICS") || list.contains("CALCULUS") || list.contains("STATISTICS")){
 			BufferedWriter bw = new BufferedWriter(new FileWriter(mathFile,true));
 			bw.write(upperCaseClassName);
 			bw.newLine();
@@ -48,16 +49,16 @@ public class ClassFile {
 			bw.newLine();
 			bw.close();
 		}
-		if(list.contains("HISTORY") || list.contains("PYSCHOLOGY") || list.contains("TOK")){
+		if(list.contains("HISTORY") || list.contains("GOVERNMENT") || list.contains("PYSCHOLOGY") || list.contains("TOK") || list.contains("THEORY")){
 			BufferedWriter bw = new BufferedWriter(new FileWriter(socialStudiesFile,true));
 			bw.write(upperCaseClassName);
 			bw.newLine();
 			bw.close();
 		}
-		if(!list.contains("MATH") && !list.contains("CALCULUS") && !list.contains("STATISTICS") 
+		if(!list.contains("MATH") && !list.contains("MATHEMATICS") || !list.contains("CALCULUS") && !list.contains("STATISTICS") 
 				&& !list.contains("ENGLISH") && !list.contains("BIOLOGY") && !list.contains("CHEMISTRY") 
-				&& !list.contains("PHYSICS") && !list.contains("HISTORY") && !list.contains("PYSCHOLOGY")
-				&& !list.contains("TOK")){
+				&& !list.contains("PHYSICS") && !list.contains("HISTORY") && !list.contains("GOVERNMENT") && !list.contains("PYSCHOLOGY")
+				&& !list.contains("TOK") && !list.contains("THEORY")){
 			BufferedWriter bw = new BufferedWriter(new FileWriter(electiveFile,true));
 			bw.write(upperCaseClassName);
 			bw.newLine();
