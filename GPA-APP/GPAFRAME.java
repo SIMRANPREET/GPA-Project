@@ -3,7 +3,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -36,6 +42,7 @@ public class GPAFRAME extends JFrame{
 	private JButton showSocialStudiesClassesButton;
 	private JButton showElectiveClassesButton;
 	private JButton showScienceClassesButton;
+	private JButton calcpgpa;
 	private JLabel label1;
 	private JLabel label2;
 	private JLabel label3;
@@ -109,6 +116,7 @@ public class GPAFRAME extends JFrame{
 		 p.add(showSocialStudiesClassesButton);
 		 p.add(showElectiveClassesButton);
 		 p.add(showScienceClassesButton);
+		 p.add(calcpgpa);
 		 add(p);
 		 }
 	 
@@ -171,6 +179,9 @@ public class GPAFRAME extends JFrame{
 		 ActionListener sscbl = new showScienceClassesButtonListener();
 		 showScienceClassesButton = new JButton("Show Science Classes");
 		 showScienceClassesButton.addActionListener(sscbl);
+		 ActionListener cpgpa = new calcpgpaButtonListner();
+		 calcpgpa = new JButton("Calculate");
+		 calcpgpa.addActionListener(cpgpa);
 		 grade1.setBounds(35,70,50,50);
 		 grade2.setBounds(145,70,50,50);
 		 grade3.setBounds(255,70,50,50);
@@ -186,6 +197,7 @@ public class GPAFRAME extends JFrame{
 		 showElectiveClassesButton.setBounds(393,200,153,30);
 		 showScienceClassesButton.setBounds(393,240,153,30);
 		 showClassFrameButton.setBounds(393,280,153,30);
+		 calcpgpa.setBounds(1000,70,100,30);
 		 saveButton.addActionListener(listener3);
 		 label1 = new JLabel("Grade for A1");
 		 label1.setBounds(24, 5, 100, 30);
@@ -682,6 +694,328 @@ public class GPAFRAME extends JFrame{
 			 }
 		 public void keyReleased(KeyEvent e){
 			 
+		 }
+	 }
+	 
+	 private class calcpgpaButtonListner implements ActionListener{
+		 public void actionPerformed(ActionEvent e){
+			 double i1=0;
+			 double i2=0;
+			 double i3=0;
+			 double i4=0;
+			 double i5=0;
+			 File electiveFile = new File("Elective Classes.txt");
+			 try {
+				double s1 = 0;
+				int counter = 0;
+				Scanner filescanner = new Scanner(electiveFile);
+				while(filescanner.hasNextLine()){
+					String class1 = filescanner.nextLine();
+					ArrayList<String> list = new ArrayList<String>(Arrays.asList(class1.split(";")));
+					if(list.get(1).equals(" A")){
+						s1 = s1 + 4.00;
+						counter++;
+					}
+					if(list.get(1).equals(" A-")){
+						s1 = s1 + 3.67;
+						counter++;
+					}
+					if(list.get(1).equals(" B+")){
+						s1 = s1 + 3.33;
+						counter++;
+					}
+					if(list.get(1).equals(" B")){
+						s1 = s1 + 3.00;
+						counter++;
+					}
+					if(list.get(1).equals(" B-")){
+						s1 = s1 + 2.67;
+						counter++;
+					}
+					if(list.get(1).equals(" C+")){
+						s1 = s1 + 2.33;
+						counter++;
+					}
+					if(list.get(1).equals(" C")){
+						s1 = s1 + 2.00;
+						counter++;
+					}
+					if(list.get(1).equals(" C-")){
+						s1 = s1 + 1.67;
+						counter++;
+					}
+					if(list.get(1).equals(" D+")){
+						s1 = s1 + 1.33;
+						counter++;
+					}
+					if(list.get(1).equals(" D")){
+						s1 = s1 + 1.00;
+						counter++;
+					}
+					if(list.get(1).equals(" D-")){
+						s1 = s1 + 0.67;
+						counter++;
+					}
+					if(list.get(1).equals(" F")){
+						s1 = s1 + 0.00;
+						counter++;
+					}
+				}
+				i1 = s1/counter;
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
+			 
+			 File englishFile = new File("English Classes.txt");
+			 try {
+				double s1 = 0;
+				int counter = 0;
+				Scanner filescanner = new Scanner(englishFile);
+				while(filescanner.hasNextLine()){
+					String class1 = filescanner.nextLine();
+					ArrayList<String> list = new ArrayList<String>(Arrays.asList(class1.split(";")));
+					if(list.get(1).equals(" A")){
+						s1 = s1 + 4.00;
+						counter++;
+					}
+					if(list.get(1).equals(" A-")){
+						s1 = s1 + 3.67;
+						counter++;
+					}
+					if(list.get(1).equals(" B+")){
+						s1 = s1 + 3.33;
+						counter++;
+					}
+					if(list.get(1).equals(" B")){
+						s1 = s1 + 3.00;
+						counter++;
+					}
+					if(list.get(1).equals(" B-")){
+						s1 = s1 + 2.67;
+						counter++;
+					}
+					if(list.get(1).equals(" C+")){
+						s1 = s1 + 2.33;
+						counter++;
+					}
+					if(list.get(1).equals(" C")){
+						s1 = s1 + 2.00;
+						counter++;
+					}
+					if(list.get(1).equals(" C-")){
+						s1 = s1 + 1.67;
+						counter++;
+					}
+					if(list.get(1).equals(" D+")){
+						s1 = s1 + 1.33;
+						counter++;
+					}
+					if(list.get(1).equals(" D")){
+						s1 = s1 + 1.00;
+						counter++;
+					}
+					if(list.get(1).equals(" D-")){
+						s1 = s1 + 0.67;
+						counter++;
+					}
+					if(list.get(1).equals(" F")){
+						s1 = s1 + 0.00;
+						counter++;
+					}
+				}
+				i2 = s1/counter;
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
+			
+			 File mathFile = new File("Math Classes.txt");
+			 try {
+				double s1 = 0;
+				int counter = 0;
+				Scanner filescanner = new Scanner(mathFile);
+				while(filescanner.hasNextLine()){
+					String class1 = filescanner.nextLine();
+					ArrayList<String> list = new ArrayList<String>(Arrays.asList(class1.split(";")));
+					if(list.get(1).equals(" A")){
+						s1 = s1 + 4.00;
+						counter++;
+					}
+					if(list.get(1).equals(" A-")){
+						s1 = s1 + 3.67;
+						counter++;
+					}
+					if(list.get(1).equals(" B+")){
+						s1 = s1 + 3.33;
+						counter++;
+					}
+					if(list.get(1).equals(" B")){
+						s1 = s1 + 3.00;
+						counter++;
+					}
+					if(list.get(1).equals(" B-")){
+						s1 = s1 + 2.67;
+						counter++;
+					}
+					if(list.get(1).equals(" C+")){
+						s1 = s1 + 2.33;
+						counter++;
+					}
+					if(list.get(1).equals(" C")){
+						s1 = s1 + 2.00;
+						counter++;
+					}
+					if(list.get(1).equals(" C-")){
+						s1 = s1 + 1.67;
+						counter++;
+					}
+					if(list.get(1).equals(" D+")){
+						s1 = s1 + 1.33;
+						counter++;
+					}
+					if(list.get(1).equals(" D")){
+						s1 = s1 + 1.00;
+						counter++;
+					}
+					if(list.get(1).equals(" D-")){
+						s1 = s1 + 0.67;
+						counter++;
+					}
+					if(list.get(1).equals(" F")){
+						s1 = s1 + 0.00;
+						counter++;
+					}
+				}
+				i3 = s1/counter;
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
+			 
+			 File scienceFile = new File("Science Classes.txt");
+			 try {
+				double s1 = 0;
+				int counter = 0;
+				Scanner filescanner = new Scanner(mathFile);
+				while(filescanner.hasNextLine()){
+					String class1 = filescanner.nextLine();
+					ArrayList<String> list = new ArrayList<String>(Arrays.asList(class1.split(";")));
+					if(list.get(1).equals(" A")){
+						s1 = s1 + 4.00;
+						counter++;
+					}
+					if(list.get(1).equals(" A-")){
+						s1 = s1 + 3.67;
+						counter++;
+					}
+					if(list.get(1).equals(" B+")){
+						s1 = s1 + 3.33;
+						counter++;
+					}
+					if(list.get(1).equals(" B")){
+						s1 = s1 + 3.00;
+						counter++;
+					}
+					if(list.get(1).equals(" B-")){
+						s1 = s1 + 2.67;
+						counter++;
+					}
+					if(list.get(1).equals(" C+")){
+						s1 = s1 + 2.33;
+						counter++;
+					}
+					if(list.get(1).equals(" C")){
+						s1 = s1 + 2.00;
+						counter++;
+					}
+					if(list.get(1).equals(" C-")){
+						s1 = s1 + 1.67;
+						counter++;
+					}
+					if(list.get(1).equals(" D+")){
+						s1 = s1 + 1.33;
+						counter++;
+					}
+					if(list.get(1).equals(" D")){
+						s1 = s1 + 1.00;
+						counter++;
+					}
+					if(list.get(1).equals(" D-")){
+						s1 = s1 + 0.67;
+						counter++;
+					}
+					if(list.get(1).equals(" F")){
+						s1 = s1 + 0.00;
+						counter++;
+					}
+				}
+				i4 = s1/counter;
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
+			 
+			 File socialstudiesfile = new File("Social Studies Classes.txt");
+			 try {
+				double s1 = 0;
+				int counter = 0;
+				Scanner filescanner = new Scanner(socialstudiesfile);
+				while(filescanner.hasNextLine()){
+					String class1 = filescanner.nextLine();
+					ArrayList<String> list = new ArrayList<String>(Arrays.asList(class1.split(";")));
+					if(list.get(1).equals(" A")){
+						s1 = s1 + 4.00;
+						counter++;
+					}
+					if(list.get(1).equals(" A-")){
+						s1 = s1 + 3.67;
+						counter++;
+					}
+					if(list.get(1).equals(" B+")){
+						s1 = s1 + 3.33;
+						counter++;
+					}
+					if(list.get(1).equals(" B")){
+						s1 = s1 + 3.00;
+						counter++;
+					}
+					if(list.get(1).equals(" B-")){
+						s1 = s1 + 2.67;
+						counter++;
+					}
+					if(list.get(1).equals(" C+")){
+						s1 = s1 + 2.33;
+						counter++;
+					}
+					if(list.get(1).equals(" C")){
+						s1 = s1 + 2.00;
+						counter++;
+					}
+					if(list.get(1).equals(" C-")){
+						s1 = s1 + 1.67;
+						counter++;
+					}
+					if(list.get(1).equals(" D+")){
+						s1 = s1 + 1.33;
+						counter++;
+					}
+					if(list.get(1).equals(" D")){
+						s1 = s1 + 1.00;
+						counter++;
+					}
+					if(list.get(1).equals(" D-")){
+						s1 = s1 + 0.67;
+						counter++;
+					}
+					if(list.get(1).equals(" F")){
+						s1 = s1 + 0.00;
+						counter++;
+					}
+				}
+				i5 = s1/counter;
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
+			 double predictedgpanumberd = (i1+i1+i1+i2+i3+i4+i4+i5)/8;
+			 String predictedgpanumber = Double.toString(predictedgpanumberd);
+			 pgpaText.setText(predictedgpanumber);
 		 }
 	 }
 	 
