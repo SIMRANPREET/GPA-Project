@@ -55,10 +55,10 @@ public class ClassFile {
 			bw.newLine();
 			bw.close();
 		}
-		if(!list.contains("MATH") && !list.contains("MATHEMATICS") || !list.contains("CALCULUS") && !list.contains("STATISTICS") 
+		if(!list.contains("MATH") && !list.contains("MATHEMATICS") && !list.contains("CALCULUS") && !list.contains("STATISTICS") 
 				&& !list.contains("ENGLISH") && !list.contains("BIOLOGY") && !list.contains("CHEMISTRY") 
-				&& !list.contains("PHYSICS") && !list.contains("HISTORY") && !list.contains("GOVERNMENT") && !list.contains("PYSCHOLOGY")
-				&& !list.contains("TOK") && !list.contains("THEORY")){
+				&& !list.contains("PHYSICS") && !list.contains("HISTORY") && !list.contains("GOVERNMENT")
+				&&!list.contains("PYSCHOLOGY") && !list.contains("TOK") && !list.contains("THEORY")){
 			BufferedWriter bw = new BufferedWriter(new FileWriter(electiveFile,true));
 			bw.write(upperCaseClassName);
 			bw.newLine();
