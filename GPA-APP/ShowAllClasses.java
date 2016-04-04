@@ -17,7 +17,7 @@ import javax.swing.JPanel;
  */
 public class ShowAllClasses extends JFrame {
 	private static final int FRAME_WIDTH = 1130;
-	private static final int FRAME_HEIGHT = 550;
+	private static final int FRAME_HEIGHT = 1050;
 	public JLabel c1;
 	JPanel p = new JPanel(null);
 	 
@@ -48,20 +48,28 @@ public class ShowAllClasses extends JFrame {
 		while(files.hasNextLine()){
 			String class1 = files.nextLine();
 			c1 = new JLabel(class1);
-			c1.setBounds(x,y,200,50);
+			c1.setBounds(x,y,260,50);
 			p.add(c1);
 			y = y + 50;
 			labelcount++;
-			if(labelcount==10){
-				x = x + 300;
-				y = 0;
-			}
 			if(labelcount == 20){
 				x = x + 300;
 				y = 0;
 			}
-			if(labelcount == 30){
-				x = x +300;
+			if(labelcount == 40){
+				x = x + 300;
+				y = 0;
+			}
+			if(labelcount == 60){
+				x = x + 300;
+				y = 0;
+			}
+			if(labelcount == 80){
+				x = x + 300;
+				y = 0;
+			}
+			if(labelcount == 100){
+				x = x + 300;
 				y = 0;
 			}
 		}
